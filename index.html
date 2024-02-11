@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walentynka</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: pink;
+        max-width: 1080px;
+        max-width: 1920px;
+    }
+    #question {
+        margin-top: 200px;
+        font-size: 42px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        
+    }
+    #question2 {
+        margin-top: 10px;
+        font-size: 11px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        
+    }
+    #choice1 {
+        margin-top: 20px;
+    }
+    #choice2 {
+        margin-top: 20px;
+    }
+    button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .btn1{
+        background-color: #04AA6D;
+        border-radius: 12px;
+        border: 2px solid green;
+    }
+    .btn2{
+        background-color: #f44336;
+        border-radius: 12px;
+        border: 2px solid red;
+    }
+    #dogGif {
+        display: none;
+        margin-top: 20px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .decoration {
+        position: absolute;
+        opacity: 0.7;
+    }
+    .flower1 {
+        top: 100px;
+        left: 100px;
+        width: 300px;
+    }
+    .flower2 {
+        top: 200px;
+        right: 150px;
+        width: 250px;
+    }
+    .dog {
+        bottom: 50px;
+        left: 50px;
+        width: 300px;
+    }
+    .cat {
+        bottom: 100px;
+        right: 100px;
+        width: 250px;
+    }
+    .no-hover {
+        pointer-events: none;
+    }
+</style>
+</head>
+<body>
+<div id="question" onclick="showDogGif()">Czy zostaniesz Majuś moją Walentynką?</div>
+<div id="choice1">
+    <button class="btn1" onclick="answer('tak')">Tak</button>
+</div>
+<div id="choice2">
+    <button id="noBtn" class="btn2" onmouseenter="moveNoButton()">Nie</button>
+</div>
+<img id="dogGif" src="./smiling-dog-1.gif" alt="Happy Dog GIF">
+<!-- <img class="decoration flower1" src="./1295049_print-trimmed-1.png" alt="Pink Flower">
+<img class="decoration flower2" src="./image_processing20200410-24721-1vcbanp.png" alt="Pink Flower">
+<img class="decoration dog" src="./pngtree-love-beautiful-white-rose-png-image_6281481.jpg" alt="Happy Dog">
+<img class="decoration cat" src="./cb6777e04ef147add461283e9da16395.jpg" alt="Cute Cat"> -->
+<script>
+function answer(response) {
+    if (response === 'tak') {
+        document.getElementById('dogGif').style.display = 'inline';
+        document.getElementById('question').innerHTML = 'To ja teraz <3';
+        document.getElementById('question2').innerHTML = 'ps. Zapraszam na wiadomość prywatną ze screenem odpowiedzi :3';
+        document.getElementById('question').onclick = null;
+    }
+}
+
+function showDogGif() {
+    document.getElementById('question').onclick = null;
+}
+
+function moveNoButton() {
+    var button = document.getElementById('noBtn');
+    var x = Math.floor(Math.random() * 700);
+    var y = Math.floor(Math.random() * 700);
+    button.style.transition = 'transform 0.5s ease';
+    button.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+}
+</script>
+</body>
+</html>
