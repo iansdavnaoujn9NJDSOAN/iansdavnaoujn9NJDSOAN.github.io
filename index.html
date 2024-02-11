@@ -18,7 +18,7 @@
     }
     #question {
         margin-top: 200px;
-        font-size: 42px;
+        font-size: 32px;
         cursor: pointer;
         font-weight: bold;
         color: white;
@@ -27,10 +27,8 @@
     #question2 {
         margin-top: 10px;
         font-size: 11px;
-        cursor: pointer;
         font-weight: bold;
         color: white;
-        
     }
     #choice1 {
         margin-top: 20px;
@@ -57,8 +55,8 @@
     #dogGif {
         display: none;
         margin-top: 20px;
-        max-width: 300px;
-        max-height: 300px;
+        max-width: 200px;
+        max-height: 200px;
     }
     .decoration {
         position: absolute;
@@ -97,6 +95,7 @@
 <div id="choice2">
     <button id="noBtn" class="btn2" onmouseenter="moveNoButton()">Nie</button>
 </div>
+<div id="question2"></div>
 <img id="dogGif" src="./smiling-dog-1.gif" alt="Happy Dog GIF">
 <!-- <img class="decoration flower1" src="./1295049_print-trimmed-1.png" alt="Pink Flower">
 <img class="decoration flower2" src="./image_processing20200410-24721-1vcbanp.png" alt="Pink Flower">
@@ -107,10 +106,15 @@ function answer(response) {
     if (response === 'tak') {
         document.getElementById('dogGif').style.display = 'inline';
         document.getElementById('question').innerHTML = 'To ja teraz <3';
-        document.getElementById('question2').innerHTML = 'ps. Zapraszam na wiadomość prywatną ze screenem odpowiedzi :3';
         document.getElementById('question').onclick = null;
-    }
+        var button = document.getElementById('noBtn');
+    var x = Math.floor(Math.random() * 7000000000000);
+    var y = Math.floor(Math.random() * 7000000000);
+    button.style.transition = 'transform 0.5s ease';
+    button.style.transform = 'translate(' + x + 'px,' + y + 'px)';
 }
+    }
+
 
 function showDogGif() {
     document.getElementById('question').onclick = null;
@@ -118,8 +122,8 @@ function showDogGif() {
 
 function moveNoButton() {
     var button = document.getElementById('noBtn');
-    var x = Math.floor(Math.random() * 700);
-    var y = Math.floor(Math.random() * 700);
+    var x = Math.floor(Math.random() * 450);
+    var y = Math.floor(Math.random() * 450);
     button.style.transition = 'transform 0.5s ease';
     button.style.transform = 'translate(' + x + 'px,' + y + 'px)';
 }
